@@ -12,10 +12,13 @@ import logging
 
 
 cmd = [
-    'tests/',
-    '--maxfail=2',
-    '--tb=long',
-    '--showlocals'
+        'tests/',
+        '--maxfail=2',
+        '--tb=long',
+        '--showlocals',
+        '--log-format="%(asctime)s %(levelname)s %(message)s"',
+        '--log-date-format="%Y-%m-%d %H:%M:%S"',
+        '--log-file=./blender_test.log'
     ]
 
 
@@ -28,7 +31,7 @@ def bledner_check():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG, filename='blender_test.log',
+    logging.basicConfig(level=logging.DEBUG, filename='bpy_test.log',
                         format='%(asctime)s %(levelname)s:%(message)s')
     bledner_check()
     pytest.main(cmd)
